@@ -1,0 +1,28 @@
+class Solution{
+    //Function to find the leaders in the array.
+    public:
+    vector<int> leaders(int a[], int n){
+    
+    //new vector creation
+        vector<int> ans;
+        
+        long long max=a[n-1];
+        
+        ans.push_back(max); //pushing in vector
+        
+       for(int i = n-1;i>=0;i--)  // traverse array in reverse order
+       {
+           if(a[i]<=a[i-1]){
+               if(a[i-1]>=max)
+               {
+                   max=a[i-1];
+                   ans.push_back(max);  // pusing in vector
+               }
+            }
+        }
+        
+    reverse(ans.begin(),ans.end());  // reverse the vector
+    return ans;
+    }
+    
+};
